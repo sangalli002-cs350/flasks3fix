@@ -1,11 +1,13 @@
 #!/bin/bash
-echo "Enter directory name"
-read newdir
-`mkdir $newdir`
+echo "starting script" 
+
+#echo "Enter directory name"
+#read newdir
+#`mkdir $newdir`
 
 
-mkdir COS1
-cd COS1
+#mkdir COS1
+#cd COS1
 
 apt list --upgradable
 sudo apt update
