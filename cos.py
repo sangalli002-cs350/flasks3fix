@@ -1,15 +1,17 @@
 import boto3
 
-''''
- s3 = boto3.resource('s3',
-         aws_access_key_id=ACCESS_ID,
-         aws_secret_access_key= ACCESS_KEY)
+#PUT YOUR AWS CREDENTIALS IN THESE TWO LINES
+aakid = ACCESS_ID
+asak = ACCESS_KEY
 
- '''
+s3_resource = boto3.resource('s3',
+         aws_access_key_id=aakid,
+         aws_secret_access_key= asak)
 
-s3_resource = boto3.resource('s3')
+s3_client = boto3.resource('s3',
+         aws_access_key_id=aakid,
+         aws_secret_access_key= asak)
 
-s3_client = boto3.client('s3')
 
 import uuid
 
@@ -38,8 +40,7 @@ s3_resource.create_bucket(Bucket=BN,
 
 
 # Retrieve the list of existing buckets
-s3 = boto3.client('s3')
-response = s3.list_buckets()
+response = s3_client.list_buckets()
 
 # Output the bucket names
 print('Existing buckets:')
@@ -91,7 +92,6 @@ s3_resource.Bucket(BN).delete()
 
 print (" ")
 print ("Finished")
-
 
 
 
